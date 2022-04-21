@@ -2,16 +2,14 @@ const { Client, Intents } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const { ENV } = require("./Env.js");
+const StatsBase = require("./stats/StatsBaseImpl.js");
 
-/** @type {import("./stats/StatsBaseImpl.js").StatsGetter} */
+/** @type {StatsBase.StatsGetter} */
 const StatsGetter = ENV.implementation == null ? require("./stats/StatsBaseImpl.js") : require(
     ENV.implementation.startsWith("./") ? ENV.implementation : `./${ENV.implementation}`
 );
 
-/**
- * @typedef {{ id: Number, token: String, name: String }} Server
- * @typedef {{ client: Client, rest: REST, servers: Server[], serverIndex: Number }} ClientHolder
- */
+/** @typedef {{ client: Client, rest: REST, servers: StatsBase.Server[], serverIndex: Number }} ClientHolder */
 
 /** @type {ClientHolder[]} */
 let _Clients = [ ];
@@ -23,7 +21,7 @@ const UpdateRichPresence = async () => {
         const server = clientHolder.servers[clientHolder.serverIndex];
         clientHolder.serverIndex = (clientHolder.serverIndex + 1) % clientHolder.servers.length;
 
-        const stats = await StatsGetter(server.id);
+        const stats = await StatsGetter(server);
         if (stats == null) {
             client.user.setPresence({
                 "activities": null,

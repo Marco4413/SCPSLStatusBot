@@ -6,12 +6,13 @@
  *   onlinePlayers: Number,
  *   ping: Number|null
  * }} ServerStats
+ * @typedef {{ token: String, id: Number, key: String, name: String }} Server
  */
 
-/** @typedef {(serverId: Number) => Promise<ServerStats>} StatsGetter */
+/** @typedef {(server: Server) => Promise<ServerStats>} StatsGetter */
 
 /** @type {StatsGetter} */
-module.exports = async (serverId) => {
+module.exports = async (server) => {
     return {
         "isOnline": false,
         "onlinePlayers": 0,
