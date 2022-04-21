@@ -6,7 +6,7 @@
  *   onlinePlayers: Number,
  *   ping: Number|null
  * }} ServerStats
- * @typedef {{ token: String, id: Number, key: String, name: String }} Server
+ * @typedef {{ token: String, id: Number, accountId: String, key: String, name: String }} Server
  */
 
 /** @typedef {(server: Server) => Promise<ServerStats>} StatsGetter */
