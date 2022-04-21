@@ -24,15 +24,18 @@ const UpdateRichPresence = async () => {
         const stats = await StatsGetter(server);
         if (stats == null) {
             client.user.setPresence({
-                "activities": null,
-                "status": "invisible",
+                "activities": [{
+                    "type": "LISTENING",
+                    "name": "server stats."
+                }],
+                "status": "dnd",
                 "afk": false
             });
         } else if (!stats.isOnline) {
             client.user.setPresence({
                 "activities": [{
                     "type": "LISTENING",
-                    "name": "for updates about the server (It's currently offline)."
+                    "name": "updates about the server (It's currently offline)."
                 }],
                 "status": "dnd",
                 "afk": false
