@@ -7,11 +7,15 @@
 {
     "_comment0": "The Discord fallback token which is used when there isn't an SL Server-Specific one",
     "fallbackToken": "",
-    "_comment1": "A custom implementation to get Stats from SCPSL Servers",
+    "_comment1": "Your Server's Fallback Id and Key can be found by following this guide: https://support.scpslgame.com/article/61",
+    "_comment2": "These are used if no Server-Specific ones are found",
+    "fallbackAccountId": 10,
+    "fallbackKey": "",
+    "_comment3": "A custom implementation to get Stats from SCPSL Servers",
     "implementation": "./stats/StatsBaseImpl.js",
-    "_comment2": "The update interval of the Rich Presence (ms)",
+    "_comment4": "The update interval of the Rich Presence (ms)",
     "rpUpdateInterval": 10e3,
-    "_comment3": "The throttle time for the SCPSL api (ms)",
+    "_comment5": "The throttle time for the SCPSL api (ms)",
     "apiThrottleInterval": 60e3,
     "servers": [
         {

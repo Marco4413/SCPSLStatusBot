@@ -25,9 +25,19 @@ const _UpdateStats = async (server) => {
         return;
     _lastUpdate = now;
     
-    const apiUrl = `https://api.scpslgame.com/serverinfo.php?id=${server.accountId}&key=${server.key}&online=true&players=true`;
+    const accountId = server.accountId ?? ENV.fallbackAccountId;
+    const key = server.key ?? ENV.fallbackKey;
+    if (accountId == null) {
+        console.log("No fallback accountId specified.");
+        return;
+    } else if (key == null) {
+        console.log("No fallback key specified.");
+        return;
+    }
+
+    const apiUrl = `https://api.scpslgame.com/serverinfo.php?id=${accountId}&key=${key}&online=true&players=true`;
     const resp = await fetch(apiUrl);
-    if (resp.status !== 200) return null;
+    if (resp.status !== 200) return;
     
     try {
         const jsonResponse = await resp.json();
