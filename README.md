@@ -20,7 +20,7 @@
             "token": "",
             "_comment2": "Your Server's Id and Key can be found by following this guide: https://support.scpslgame.com/article/61",
             "id": 0,
-            "accountId": "",
+            "accountId": 10,
             "key": "",
             "_comment3": "The Server's Name (Used for Pretty Printing)",
             "name": "Server0"
@@ -28,7 +28,7 @@
         {
             "token": "",
             "id": 1,
-            "accountId": "",
+            "accountId": 10,
             "key": "",
             "name": "Server1"
         }
