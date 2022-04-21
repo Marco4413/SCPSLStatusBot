@@ -1,0 +1,13 @@
+# Editors
+.idea/
+.vscode/
+
+# NodeJS
+node_modules/
+build/
+tmp/
+temp/
+
+# Project-Specific
+.env*
+stats/custom/*

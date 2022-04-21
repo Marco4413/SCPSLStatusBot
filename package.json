@@ -1,0 +1,32 @@
+{
+  "name": "scpslstatusbot",
+  "version": "0.1.0",
+  "description": "A Discord Status Bot for SCP:SL Servers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hds536jhmk/SCPSLStatusBot.git"
+  },
+  "author": {
+    "name": "hds536jhmk",
+    "url": "https://github.com/hds536jhmk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hds536jhmk/SCPSLStatusBot/issues"
+  },
+  "homepage": "https://github.com/hds536jhmk/SCPSLStatusBot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^0.4.1",
+    "discord-api-types": "^0.31.2",
+    "discord.js": "^13.6.0",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0"
+  }
+}
