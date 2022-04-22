@@ -1,0 +1,31 @@
+{
+  "unknownNumber": "??",
+  "noStats": {
+    "activity": {
+      "type": "LISTENING",
+      "name": "server stats. ({4})"
+    },
+    "status": "dnd"
+  },
+  "offline": {
+    "activity": {
+      "type": "LISTENING",
+      "name": "updates about the server ({3} is currently offline)."
+    },
+    "status": "dnd"
+  },
+  "noPlayers": {
+    "activity": {
+      "type": "PLAYING",
+      "name": "with no players. ({3}: {2}ms)"
+    },
+    "status": "idle"
+  },
+  "playerCount": {
+    "activity": {
+      "type": "PLAYING",
+      "name": "with {0}/{1} Players! ({3}: {2}ms)"
+    },
+    "status": "online"
+  }
+}

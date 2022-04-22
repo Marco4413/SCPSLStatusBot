@@ -3,6 +3,8 @@ const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 const { ENV } = require("./Env.js");
 const StatsBase = require("./stats/StatsBaseImpl.js");
+const Locale = require("./locale.json");
+const { FormatString } = require("./Utils.js");
 
 /** @type {StatsBase.StatsGetter} */
 const StatsGetter = ENV.implementation == null ? require("./stats/StatsBaseImpl.js") : require(
@@ -22,43 +24,31 @@ const UpdateRichPresence = async () => {
         clientHolder.serverIndex = (clientHolder.serverIndex + 1) % clientHolder.servers.length;
 
         const stats = await StatsGetter(server);
+        let statsPresence;
         if (stats == null) {
-            client.user.setPresence({
-                "activities": [{
-                    "type": "LISTENING",
-                    "name": "server stats."
-                }],
-                "status": "dnd",
-                "afk": false
-            });
+            statsPresence = Locale.noStats;
         } else if (!stats.isOnline) {
-            client.user.setPresence({
-                "activities": [{
-                    "type": "LISTENING",
-                    "name": "updates about the server (It's currently offline)."
-                }],
-                "status": "dnd",
-                "afk": false
-            });
+            statsPresence = Locale.offline;
         } else if (stats.onlinePlayers <= 0) {
-            client.user.setPresence({
-                "activities": [{
-                    "type": "WATCHING",
-                    "name": "for new players."
-                }],
-                "status": "idle",
-                "afk": true
-            });
+            statsPresence = Locale.noPlayers;
         } else {
-            client.user.setPresence({
-                "activities": [{
-                    "type": "PLAYING",
-                    "name": `with ${stats.onlinePlayers}/${stats.playerCount} Players!`
-                }],
-                "status": "online",
-                "afk": false
-            });
+            statsPresence = Locale.playerCount;
         }
+
+        client.user.setPresence({
+            "activities": [{
+                "type": statsPresence.activity.type,
+                "name": FormatString(
+                    statsPresence.activity.name,
+                    stats?.onlinePlayers ?? Locale.unknownNumber,
+                    stats?.playerCount ?? Locale.unknownNumber,
+                    stats?.ping ?? Locale.unknownNumber,
+                    server.name
+                )
+            }],
+            "status": statsPresence.status,
+            "afk": statsPresence.status === "idle"
+        });
     }
 };
 
