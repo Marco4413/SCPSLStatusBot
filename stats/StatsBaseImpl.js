@@ -25,13 +25,13 @@ const _UpdateStats = async (server) => {
         return;
     _lastUpdate = now;
     
-    const accountId = server.accountId ?? ENV.fallbackAccountId;
-    const key = server.key ?? ENV.fallbackKey;
+    const accountId = server.accountId ?? ENV.accountId;
+    const key = server.key ?? ENV.key;
     if (accountId == null) {
-        console.log("No fallback accountId specified.");
+        console.log("No default accountId specified.");
         return;
     } else if (key == null) {
-        console.log("No fallback key specified.");
+        console.log("No default key specified.");
         return;
     }
 

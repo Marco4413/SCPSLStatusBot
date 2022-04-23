@@ -61,8 +61,8 @@ const Login = async () => {
 
     const createdClients = { };
     for (const server of ENV.servers) {
-        const token = server.token ?? ENV.fallbackToken;
-        if (token == null) throw new Error("No valid fallback token was found.");
+        const token = server.token ?? ENV.defaultServer.token;
+        if (token == null) throw new Error("No valid default token was found.");
 
         if (createdClients[token] != null) {
             createdClients[token].servers.push(server);

@@ -5,18 +5,21 @@
  1. Create a `.env.json` file on the project's root and add the following template:
 ```json
 {
-    "_comment0": "The Discord fallback token which is used when there isn't an SL Server-Specific one",
-    "fallbackToken": "",
-    "_comment1": "Your Server's Fallback Id and Key can be found by following this guide: https://support.scpslgame.com/article/61",
-    "_comment2": "These are used if no Server-Specific ones are found",
-    "fallbackAccountId": 10,
-    "fallbackKey": "",
-    "_comment3": "A custom implementation to get Stats from SCPSL Servers",
+    "_comment0": "A custom implementation to get Stats from SCPSL Servers",
     "implementation": "./stats/StatsBaseImpl.js",
-    "_comment4": "The update interval of the Rich Presence (ms)",
+    "_comment1": "The update interval of the Rich Presence (ms)",
     "rpUpdateInterval": 10e3,
-    "_comment5": "The throttle time for the SCPSL api (ms)",
+    "_comment2": "The throttle time for the SCPSL api (ms)",
     "apiThrottleInterval": 60e3,
+    "_comment3": "Default Server Settings",
+    "defaultServer": {
+        "_comment0": "The Discord token which is used when there isn't an SL Server-Specific one",
+        "token": "",
+        "_comment1": "Your Server's Id and Key can be found by following this guide: https://support.scpslgame.com/article/61",
+        "_comment2": "These are used if no Server-Specific ones are found",
+        "accountId": 10,
+        "key": ""
+    },
     "servers": [
         {
             "_comment0": "The token of the Discord Bot Account that handles this Server's Stats",
