@@ -9,17 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hds536jhmk/SCPSLStatusBot.git"
+    "url": "git+https://github.com/Marco4413/SCPSLStatusBot.git"
   },
   "author": {
-    "name": "hds536jhmk",
-    "url": "https://github.com/hds536jhmk"
+    "name": "Marco",
+    "url": "https://github.com/Marco4413"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hds536jhmk/SCPSLStatusBot/issues"
+    "url": "https://github.com/Marco4413/SCPSLStatusBot/issues"
   },
-  "homepage": "https://github.com/hds536jhmk/SCPSLStatusBot#readme",
+  "homepage": "https://github.com/Marco4413/SCPSLStatusBot#readme",
   "dependencies": {
     "@discordjs/rest": "^0.4.1",
     "discord-api-types": "^0.31.2",
